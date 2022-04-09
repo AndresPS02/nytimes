@@ -28,11 +28,46 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        makeToast("onCreate()")
         this.binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(this.binding.root)
         initAdapter()
         initViewModel()
         consultNY()
+    }
+
+    override fun onStart() {
+        super.onStart()
+        makeToast("onStart()")
+    }
+
+    override fun onResume() {
+        super.onResume()
+        makeToast("onResume()")
+    }
+
+    override fun onRestart() {
+        super.onRestart()
+        makeToast("onRestart()")
+    }
+
+    override fun onPause() {
+        super.onPause()
+        makeToast("onPause()")
+    }
+
+    override fun onStop() {
+        super.onStop()
+        makeToast("onStop()")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        makeToast("onDestroy()")
+    }
+
+    private fun makeToast(msg: String) {
+        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
     }
 
     private fun initAdapter() {
